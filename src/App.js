@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { useAccount, useConnect } from 'wagmi';
 import './App.css';
+import { WagmiProvider } from './context/WagmiContext';
 
 function App() {
+
+  // hooks defined
+  const { address, isConnected } = useAccount()
+  const { connectors } = useConnect()
+
+  // const doConnect = () => {
+  //   if(!isConnected){
+  //     connectors()
+  //   }
+  // }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WagmiProvider>
+      <div className="App min-h-screen w-screen bg-slate-700 text-gray-100 md:px-10 md:py-12 px-5 py-10 flex justify-center items-center">
+
+        
+        
+        
+      </div>
+    </WagmiProvider>
   );
 }
 
